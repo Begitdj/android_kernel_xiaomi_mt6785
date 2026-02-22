@@ -25,7 +25,11 @@ jobs:
         run: |
           mkdir -p $HOME/compiler
           git clone --depth=1 https://github.com/kdrag0n/proton-clang.git $HOME/compiler/clang
-
+          
+      - name: build
+        run: |
+          chmod +x build.sh
+          ./build.sh
       - name: Upload Kernel Artifact
         uses: actions/upload-artifact@v4
         with:
