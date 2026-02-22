@@ -17,7 +17,7 @@ echo "--- Config ---"
 make O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 rosemary_defconfig
 
 if [ -f "./scripts/config" ]; then
-    echo "--- Включение KernelSU ---"
+    echo "--- enable resukisu ---"
     ./scripts/config --file out/.config \
         -e CONFIG_KSU \
         -e CONFIG_KSU_MANUAL_HOOK \
