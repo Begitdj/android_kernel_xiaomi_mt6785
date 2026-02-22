@@ -25,6 +25,12 @@ jobs:
         run: |
           mkdir -p $HOME/compiler
           git clone --depth=1 https://github.com/kdrag0n/proton-clang.git $HOME/compiler/clang
+
+      - name: Refresh ReSukiSu
+        run: |
+          # stupid
+          rm -rf KernelSU drivers/kernelsu
+          curl -LSs "https://raw.githubusercontent.com/ReSukiSu/ReSukiSU/main/kernel/setup.sh" | bash
           
       - name: build
         run: |
