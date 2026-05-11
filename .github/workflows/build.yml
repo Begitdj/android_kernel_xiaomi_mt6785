@@ -31,11 +31,26 @@ jobs:
           # stupid
           rm -rf KernelSU drivers/kernelsu
           curl -LSs "https://raw.githubusercontent.com/ReSukiSu/ReSukiSU/main/kernel/setup.sh" | bash
+
+      - name: Verify
+        run: |
+          if [ ! -d "KernelSU" ]; then
+            echo "Error: KernelSU folder is missing!"
+            exit 1
+          fi
+
+          if [ ! -d "drivers/kernelsu" ]; then
+            echo "Error: drivers/kernelsu folder is missing!"
+            exit 1
+          fi
           
+          echo "All folders found"
+
       - name: build
         run: |
           chmod +x build.sh
           ./build.sh
+
       - name: Upload Kernel Artifact
         uses: actions/upload-artifact@v7
         with:
